@@ -8,19 +8,21 @@ namespace SearchService.Consumers;
 
 public class AuctionCreatedConsumer : IConsumer<AuctionCreated>
 {
-    private readonly IMapper _mapper;
+  private readonly IMapper _mapper;
 
-    public AuctionCreatedConsumer(IMapper mapper)
-    {
-        _mapper = mapper;
-    }
+  public AuctionCreatedConsumer(IMapper mapper)
+  {
+    _mapper = mapper;
+  }
 
-    public async Task Consume(ConsumeContext<AuctionCreated> context)
-    {
-      Console.WriteLine("--> Consuming event: AuctionCreated" + context.Message.Id);
+  public async Task Consume(ConsumeContext<AuctionCreated> context)
+  {
+    Console.WriteLine("--> Consuming AuctionCreated: " + context.Message.Id);
 
-      var item = _mapper.Map<Item>(context.Message);
+    var item = _mapper.Map<Item>(context.Message);
 
-      await item.SaveAsync();
-    }
+    if (item.Model == "Foo") throw new ArgumentException("Cannot sell cars with name Foo");
+
+    await item.SaveAsync();
+  }
 }
