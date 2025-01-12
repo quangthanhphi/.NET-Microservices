@@ -2,6 +2,7 @@ using System;
 using AuctionService.DTOs;
 using AuctionService.Entities;
 using AutoMapper;
+using Contracts;
 
 namespace AuctionService.RequestHelpers;
 
@@ -22,5 +23,8 @@ public class MappingProfiles : Profile
     
     // Tạo cấu hình ánh xạ từ CreateAuctionDto sang Item
     CreateMap<CreateAuctionDto, Item>();
+    CreateMap<AuctionDto, AuctionCreated>();
+    CreateMap<Auction, AuctionUpdated>().IncludeMembers(x => x.Item);
+    CreateMap<Item, AuctionUpdated>();
   }
 }
