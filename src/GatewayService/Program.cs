@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,18 +6,13 @@ builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-  .AddJwtBearer(options =>
-  {
-    options.Authority = builder.Configuration["IdentityServiceUrl"];
-    options.RequireHttpsMetadata = false; // Chỉ dùng khi chạy local HTTP
-    options.TokenValidationParameters = new TokenValidationParameters
+    .AddJwtBearer(options =>
     {
-        ValidateIssuer = true,
-        ValidIssuer = builder.Configuration["IdentityServiceUrl"], 
-        ValidateAudience = false,
-        NameClaimType = "username"
-    };
-  });
+      options.Authority = builder.Configuration["IdentityServiceUrl"];
+      options.RequireHttpsMetadata = false;
+      options.TokenValidationParameters.ValidateAudience = false;
+      options.TokenValidationParameters.NameClaimType = "username";
+    });
 
 var app = builder.Build();
 
