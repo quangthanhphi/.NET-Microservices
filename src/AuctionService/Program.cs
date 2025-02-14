@@ -15,7 +15,7 @@ builder.Services.AddDbContext<AuctionDbContext>(opt =>
   opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddMassTransit(x => 
+builder.Services.AddMassTransit(x =>
 {
   x.AddEntityFrameworkOutbox<AuctionDbContext>(o =>
   {
@@ -24,14 +24,14 @@ builder.Services.AddMassTransit(x =>
     o.UsePostgres();
     o.UseBusOutbox();
   });
-  
+
   x.AddConsumersFromNamespaceContaining<AuctionCreatedFaultConsumer>();
 
   x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("auction", false));
 
-  x.UsingRabbitMq((context, cfg) => 
+  x.UsingRabbitMq((context, cfg) =>
   {
-    cfg.Host(builder.Configuration["RabbitMq:Host"], "/", host => 
+    cfg.Host(builder.Configuration["RabbitMq:Host"], "/", host =>
     {
       host.Username(builder.Configuration.GetValue("RabbitMq:Username", "guest"));
       host.Password(builder.Configuration.GetValue("RabbitMq:Password", "guest"));
@@ -42,14 +42,13 @@ builder.Services.AddMassTransit(x =>
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options => 
+    .AddJwtBearer(options =>
     {
-        options.Authority = builder.Configuration["IdentityServiceUrl"];
-        options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters.ValidateAudience = false;
-        options.TokenValidationParameters.NameClaimType = "username";
+      options.Authority = builder.Configuration["IdentityServiceUrl"]; // Khi môi trường Docker
+      options.RequireHttpsMetadata = false;
+      options.TokenValidationParameters.ValidateAudience = false;
+      options.TokenValidationParameters.NameClaimType = "username";
     });
-
 
 var app = builder.Build();
 
@@ -65,7 +64,7 @@ try
 }
 catch (Exception e)
 {
-  Console.WriteLine(e);  
+  Console.WriteLine(e);
 }
 
 app.Run();
