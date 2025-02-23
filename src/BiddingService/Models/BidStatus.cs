@@ -3,7 +3,7 @@ namespace BiddingService.Models;
 public enum BidStatus
 {
   Accepted,
-  AcceptedBellowReserve,
+  AcceptedBelowReserve,
   TooLow,
   Finished
 }
