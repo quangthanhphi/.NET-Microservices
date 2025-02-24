@@ -1,6 +1,5 @@
 'use server';
 
-import { auth } from '@/auth';
 import { fetchWrapper } from '@/lib/fetchWrapper';
 import { Auction, Bid, PagedResult } from '@/types';
 import { revalidatePath } from 'next/cache';

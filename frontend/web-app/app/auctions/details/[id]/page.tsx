@@ -10,9 +10,9 @@ import DeleteButton from './DeleteButton';
 import BidItem from './BidItem';
 import BidList from './BidList';
 
-export default async function Details({ params }: { params: { id: string } }) {
+export default async function Details({ params }: { params: Promise<{ id: string }> }) {
   const user = await getCurrentUser();
-  const data = await getDetailedViewData(params.id);
+  const data = await getDetailedViewData((await params).id);
 
   return (
     <div>
