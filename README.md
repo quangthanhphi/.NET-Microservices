@@ -12,7 +12,7 @@ Welcome to the Carchris project! This project is built as .NET 8, Next.js 15, an
 
 - **API Gateway**: Creating a gateway with Microsoft YARP.
 
-- **Frontend Application**: A client-side app built with Next.js, leveraging the new App Router functionality introduced in Next.js 13.4.
+- **Frontend Application**: A client-side app built with Next.js, leveraging the new App Router functionality.
 
 - **Real-time Notifications**: Implementing SignalR for push notifications.
 
@@ -26,7 +26,8 @@ Welcome to the Carchris project! This project is built as .NET 8, Next.js 15, an
 
 ## Technologies
 
-- **Backend and Frontend**: .NET 8 | Next.js 15 | Next-Auth | Docker | RabbitMQ
+- **Technologies**: .NET 8 | Next.js 15 | Next-Auth | Docker | RabbitMQ | Microsoft YARP | SignalR | IdentityServer
+- **Databases**: PostgreSQL | MongoDB
 
 GitHub Actions (for CI/CD workflows)
 
