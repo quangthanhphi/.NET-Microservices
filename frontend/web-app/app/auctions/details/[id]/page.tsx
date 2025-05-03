@@ -31,7 +31,11 @@ export default async function Details({ params }: { params: Promise<{ id: string
           <h3 className='text-2xl font-semibold'>Time remaining: </h3>
           <CountdownTimer auctionEnd={data.auctionEnd} />
         </div>
+        <div className='text-gray-700 text-lg mt-2'>
+          <span className='font-semibold'>Accepted price:</span> ${data.reservePrice.toLocaleString()}
+        </div>
       </div>
+
 
       <div className='grid grid-cols-2 gap-6 mt-3'>
         <div className='w-full bg-gray-200 relative aspect-[4/3] rounded-lg overflow-hidden'>
