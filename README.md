@@ -6,6 +6,8 @@ Welcome to the Carchris project! This project is built as .NET 8, Next.js 15, an
 ## Features
 - **Backend Services**: Several microservices built using .NET to provide different functionalities.
 
+- **Resilience & Fault Tolerance**: Using Polly to implement retries, circuit breakers, and fallback policies.
+
 - **Service Communication**: Implementing communication between services using RabbitMQ and gRPC.
 
 - **Identity Management**: Using IdentityServer as the identity provider.
