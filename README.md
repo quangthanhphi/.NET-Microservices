@@ -26,6 +26,8 @@ Welcome to the Carchris project! This project is built as .NET 8, Next.js 15, an
 
 - **Local Deployment**: Running and publishing the entire application locally using Docker Compose.
 
+- **Kubernetes Deployment**: Supporting scalable deployment to a Kubernetes cluster.
+
 ## Technologies
 
 - **Technologies**: .NET 8 | Next.js 15 | Next-Auth | Docker | RabbitMQ | Microsoft YARP | SignalR | IdentityServer
@@ -62,11 +64,11 @@ To install the project, follow these steps:
   ``` -->
 
 ## Usage
-To start the project, run:
+To start the project using Kubernetes run:
 ```bash
-npm run dev
+kubectl apply -f k8s/
 ```
-Then open your browser and go to `http://localhost:3000`.
+Then open your browser and go to `app.carchris.local`.
 <!-- 
 ## Contributing
 We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) for more details.
