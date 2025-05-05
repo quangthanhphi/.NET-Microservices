@@ -30,7 +30,7 @@ Welcome to the Carchris project! This project is built as .NET 8, Next.js 15, an
 
 ## Technologies
 
-- **Technologies**: .NET 8 | Next.js 15 | Next-Auth | Docker | RabbitMQ | Microsoft YARP | SignalR | IdentityServer
+- **Technologies**: .NET 8 | Next.js 15 | Next-Auth | Docker | RabbitMQ | Microsoft YARP | SignalR | IdentityServer | Kubernetes
 - **Databases**: PostgreSQL | MongoDB
 
 GitHub Actions (for CI/CD workflows)
