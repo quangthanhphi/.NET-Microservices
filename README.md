@@ -2,6 +2,7 @@
 
 ## Overview
 Welcome to the Carchris project! This project is built as .NET 8, Next.js 15, and Next-Auth. 
+<a href="https://deepwiki.com/quangthanhphi/.NET-Microservices"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
 
 ## Features
 - **Backend Services**: Several microservices built using .NET to provide different functionalities.
