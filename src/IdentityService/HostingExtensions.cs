@@ -21,6 +21,21 @@ internal static class HostingExtensions
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
+        // Configure Identity options
+        builder.Services.Configure<IdentityOptions>(options =>
+        {
+            // Password settings
+            options.Password.RequireDigit = false;
+            options.Password.RequireLowercase = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequiredLength = 4;
+            options.Password.RequiredUniqueChars = 1;
+
+            // User settings
+            options.User.RequireUniqueEmail = true;
+        });
+
         builder.Services
             .AddIdentityServer(options =>
             {
@@ -48,16 +63,16 @@ internal static class HostingExtensions
         {
             options.Cookie.SameSite = SameSiteMode.Lax;
         });
-        
+
         builder.Services.AddAuthentication();
 
         return builder.Build();
     }
-    
+
     public static WebApplication ConfigurePipeline(this WebApplication app)
-    { 
+    {
         app.UseSerilogRequestLogging();
-    
+
         if (app.Environment.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
@@ -67,7 +82,7 @@ internal static class HostingExtensions
         app.UseRouting();
         app.UseIdentityServer();
         app.UseAuthorization();
-        
+
         app.MapRazorPages()
             .RequireAuthorization();
 

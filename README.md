@@ -37,8 +37,27 @@ Welcome to the Carchris project! This project is built as .NET 8, Next.js 15, an
 GitHub Actions (for CI/CD workflows)
 
 ## Screenshot
+
+### 🟢 Live Demo (GIF)
+
+<p align="center">
+  Login
+  <img src="specs/Login.gif" alt="Login" width="800" />
+</p>
+
+<p align="center">
+  Bidding
+  <img src="specs/bidding.gif" alt="Bidding" width="800" />
+</p>
+
+<p align="center">
+  Sell car
+  <img src="specs/updateanddelete.gif" alt="Sell car" width="800" />
+</p>
+
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="specs/1.png" alt="Image 1" width="300" />
+<!-- Image 1 la architecture -->
+  <img src="specs/1.png" alt="Image 1" width="300" /> 
   <img src="specs/2.png" alt="Image 2" width="300" />
 </div>
 <div style="text-align: center; margin-top: 20px;">

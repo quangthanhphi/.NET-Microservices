@@ -2,6 +2,15 @@
 {
     <div class="alert alert-danger">
         <strong>Error</strong>
-        <div asp-validation-summary="All" class="danger"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        @if (ViewContext.ModelState.ErrorCount > 0)
+        {
+            <ul class="mb-0">
+                @foreach (var error in ViewContext.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        }
     </div>
 }
